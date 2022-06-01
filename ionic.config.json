@@ -1,0 +1,7 @@
+{
+  "name": "naitest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
