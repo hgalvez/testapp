@@ -1,0 +1,39 @@
+<ion-header color="primary">
+  <ion-toolbar color="primary">
+    <ion-title><br>Enter serial number <br>or scan barcode<br> </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goTologin()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header >
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row >
+      <ion-item class="item_size">
+        <ion-label position="floating">Serial Number</ion-label>
+        <ion-input value = {{scantext}} [(ngModel)]="serialnumber"></ion-input>
+        <ion-buttons slot="end">
+      <ion-button (click)="scan()">
+        <ion-icon name="scan-outline"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-row>
+  <ion-row >
+      <ion-col>
+        <ion-button (click)="searchsn(serialnumber)" >Search
+          <ion-icon name="search-outline"></ion-icon>
+        </ion-button>
+
+      </ion-col>
+    </ion-row>
+
+
+
+    </ion-grid>
+
+</ion-content>

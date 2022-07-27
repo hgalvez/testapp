@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="prelogin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-grid>
+    <ion-row >
+      <ion-item class="item_size">
+        <ion-label position="floating">email</ion-label>
+        <ion-input  type="email" [(ngModel)]="usuario"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item class="item_size">
+        <ion-label position="floating">password</ion-label>
+        <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="danger" (click)="login()">Login</ion-button>
+         </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
