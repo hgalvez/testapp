@@ -11,16 +11,16 @@
 
   <ion-toolbar color="light" *ngFor="let naiassembly of naiassembly">
     <ion-col>
-  <ion-row ><b>PART# </b>    {{ naiassembly.partnumber }}<br></ion-row>
-  <ion-row><b>SERIALNUMBER: </b> {{ naiassembly.serialnumber }} </ion-row>
-    <ion-row><b>CABLE# </b> {{ naiassembly.partnumber }}</ion-row>
-    <ion-row><b>FIBER TYPE:</b>  {{naiassembly.fibertype}}</ion-row>
-    <ion-row><b>WAVELENGTH: </b> {{ naiassembly.wavelength }}</ion-row>
-    <ion-row><b>CONNECTOR TYPE: </b> {{ naiassembly.connector }}</ion-row>
-    <ion-row><b>LOSS LIMIT: </b> ≤ {{ naiassembly.il_limit }} dB, <b>RL</b> > {{ naiassembly.rl_limit }} dB</ion-row>
-    <ion-row><b>TESTS CONDUCTED BY: </b> {{ naiassembly.creatorid }}</ion-row>
-    <ion-row><b>TEST DATE: </b> {{ naiassembly.creationdate }}</ion-row>
-    <ion-row><b>TESTER: </b> {{ naiassembly.testerid }} </ion-row>
+  <ion-row ><b>PART #</b>&nbsp;    {{ naiassembly.partnumber }}</ion-row>
+  <ion-row><b>SERIALNUMBER: </b>&nbsp; {{ naiassembly.serialnumber }}</ion-row>
+    <ion-row><b>CABLE# </b>&nbsp; {{ naiassembly.partnumber }}</ion-row>
+    <ion-row><b>FIBER TYPE:</b>&nbsp;  {{naiassembly.fibertype}}</ion-row>
+    <ion-row><b>WAVELENGTH: </b>&nbsp; {{ naiassembly.wavelength }}</ion-row>
+    <ion-row><b>CONNECTOR TYPE: </b>&nbsp; {{ naiassembly.connector }}</ion-row>
+    <ion-row><b>LOSS LIMIT: </b>&nbsp; ≤ {{ naiassembly.il_limit }} dB, <b>RL</b> > {{ naiassembly.rl_limit }} dB</ion-row>
+    <ion-row><b>TESTS CONDUCTED BY: </b>&nbsp; {{ naiassembly.creatorid }}</ion-row>
+    <ion-row><b>TEST DATE: </b>&nbsp; {{ naiassembly.creationdate }}</ion-row>
+    <ion-row><b>TESTER: </b>&nbsp; {{ naiassembly.testerid }} </ion-row>
   </ion-col>
   </ion-toolbar>
 
@@ -40,8 +40,9 @@
           <ion-item>
 
          <ion-label>
-          <ion-row>
+          <ion-row><ion-col>
           <h2><b>FIBER #</b> {{ retresult.conn }}</h2>
+        </ion-col><ion-col></ion-col>
         </ion-row>
 
         <ion-row>
@@ -58,20 +59,20 @@
           <h2><b>RLIN 1310</b> {{ retresult.rl1310in }} dB</h2>
         </ion-col>
         <ion-col>
-          <h2><b>RLOUT 1310</b> {{ retresult.rl1310out }} dB</h2>
+          <h2><b>RLIN 1550</b> {{ retresult.rl1550in }} dB</h2>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col>
-          <h2><b>RLIN 1550</b> {{ retresult.rl1550in }} dB</h2>
+          <h2><b>RLOUT 1310</b> {{ retresult.rl1310out }} dB</h2>
         </ion-col>
         <ion-col>
           <h2><b>RLOUT 1550</b> {{ retresult.rl1550out }} dB</h2>
         </ion-col>
       </ion-row>
 
-          <h2><b>P/F</b> PASS</h2>
+
           </ion-label>
         </ion-item>
         </ion-list>
