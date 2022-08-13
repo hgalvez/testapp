@@ -12,6 +12,7 @@ export class LandingPage implements OnInit {
 
  // public serialnumber: any;
  scantext: any;
+ serialnumber: any;
   constructor(
     public router: Router,
     private storage: Storage,
@@ -20,19 +21,30 @@ export class LandingPage implements OnInit {
 
   ) { }
 
-  ngOnInit() {
+  ngOnInit() {/*
+    if(this.serialnumber === '' || this.serialnumber === undefined )
+      {
 
-
+      }
+    else{
+      this.router.navigate(['home', this.scantext]);
+      }
+*/
 
   }
 
   searchsn(serialnumber){
-  console.log('serialnumber' + serialnumber);
-  this.router.navigate(['home', serialnumber]);
+    if(this.serialnumber === '' || this.serialnumber === undefined )
+    {
+    }
+    else{
+        console.log('serialnumber' + serialnumber);
+        this.router.navigate(['home', serialnumber]);
+    }
   }
 
   goTologin(){
-    this.storage.remove("token");
+    this.storage.remove('token');
 
     this.router.navigate(['login'], { replaceUrl: true });
 
@@ -42,6 +54,11 @@ export class LandingPage implements OnInit {
     this.barcodeScanner.scan().then(barcodeData => {
       console.log('Barcode data', barcodeData);
       this.scantext =barcodeData.text;
+      if(this.scantext === '' || this.scantext === undefined ){
+      }
+      else{
+        this.router.navigate(['home', this.scantext]);
+      }
      }).catch(err => {
          console.log('Error', err);
      });

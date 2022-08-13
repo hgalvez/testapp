@@ -47,16 +47,13 @@ export class LoginPage implements OnInit {
       this.basic_alert("¡Alerta!","Los accesos son incorrecto1");
     }else{
 
-
-      // usr: test
-      // psw: test123
       let scantext: string;
       let user_info = {
                           "email": this.usuario,
                           "password": this.contrasena
                       }
 
-     // this.presentLoading("Espera porfavor");
+      this.presentLoading("Please wait");
 
 
       // Aqui se genera el servicio de logueo
@@ -66,7 +63,7 @@ export class LoginPage implements OnInit {
         console.log(response);
         //this.basic_alert("token",response.token);
         //this.token =response.token;
-        //const { role, data } = this.loading.dismiss();
+        const { role, data } = this.loading.dismiss();
         this.storage.set('token', response.token);
         //this.storage.set('name', "Renan");
        // this.storage.set('last_name', "Carrillo");

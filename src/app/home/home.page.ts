@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { GeneralService } from '../api/general.service';
+import { LoadingController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 //import { UtilitiesService } from '../api/utilities.service';
 
 @Component({
@@ -24,10 +26,13 @@ export class HomePage implements OnInit{
   not_exists: boolean;
 
   results: Results[];
+  loading: any;
 
   constructor(private resultsService: ResultsService,
               private router: Router,
               private storage: Storage,
+              public loadingController: LoadingController,
+              public alertController: AlertController,
               public general_service: GeneralService,
               //public utility: UtilitiesService,
               public activatedRouter: ActivatedRoute
@@ -49,6 +54,7 @@ export class HomePage implements OnInit{
     });*/
 
     ngOnInit() {
+      this.presentLoading("Please wait");
       console.log("estoy en sn landing");
       this.activatedRouter.params.subscribe(response =>{
         console.log(response.serialnumber);
@@ -56,6 +62,7 @@ export class HomePage implements OnInit{
           console.log("token");
       console.log(token);
           this.general_service.result_detail("naiassembly/searchsn/", token, response.serialnumber ).subscribe(response =>{
+            const { role, data } = this.loading.dismiss();
             console.log(response);
             console.log(response.label);
             this.naiassembly = response;
@@ -94,9 +101,29 @@ export class HomePage implements OnInit{
 
 
   }
-
   goToLanding(){
     this.router.navigate(['landing'], { replaceUrl: true });
+  }
 
+  async presentLoading(msj) {
+    this.loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: msj,
+      duration: 6000
+    });
+    await this.loading.present();
+  }
+
+  async basic_alert(title,msj) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: title,
+      message: msj,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
   }
 }
