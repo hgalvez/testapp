@@ -44,8 +44,8 @@ export class LoginPage implements OnInit {
 
   login(){
     if(this.usuario == "" || this.usuario == undefined || this.contrasena == "" || this.contrasena == undefined){
-      const { role, data } = this.loading.dismiss();
-      this.basic_alert("¡Alerta!","Los accesos son incorrecto1");
+
+      this.basic_alert("Error", "Invalid credentials");
     }else{
 
       let scantext: string;
@@ -75,9 +75,10 @@ export class LoginPage implements OnInit {
           console.log(error.status);
           console.log(error.error.message); // error message as string
           console.log(error.headers);
+          const { role, data } = this.loading.dismiss();
 
 
-        this.basic_alert("Server:", error.error.message);
+        this.basic_alert("Error", error.error.message);
 
 
 
