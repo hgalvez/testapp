@@ -44,6 +44,7 @@ export class LoginPage implements OnInit {
 
   login(){
     if(this.usuario == "" || this.usuario == undefined || this.contrasena == "" || this.contrasena == undefined){
+      const { role, data } = this.loading.dismiss();
       this.basic_alert("¡Alerta!","Los accesos son incorrecto1");
     }else{
 
