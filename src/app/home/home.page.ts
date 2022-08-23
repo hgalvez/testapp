@@ -57,6 +57,7 @@ export class HomePage implements OnInit{
       this.presentLoading("Please wait");
       console.log("estoy en sn landing");
       this.activatedRouter.params.subscribe(response =>{
+        this.serialnumber = response.serialnumber
         console.log(response.serialnumber);
         this.storage.get("token").then((token)=>{
           console.log("token");

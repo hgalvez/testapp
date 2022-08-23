@@ -29,7 +29,11 @@
 
 <ion-content [fullscreen]="true" >
 
-<h1 *ngIf="not_exists">Serial number not found!</h1>
+  <ion-toolbar color="light" *ngIf="not_exists">
+        <ion-row>S/N:&nbsp;{{ this.serialnumber }} not found</ion-row>
+
+
+  </ion-toolbar>
 
 
   <ion-grid>
@@ -48,7 +52,7 @@
         <ion-col>
           <h2><b>IL1310</b> {{ retresult.il1310 }} dB</h2>
         </ion-col>
-        <ion-col>
+        <ion-col *ngIf="1310">
           <h2><b>IL1550</b> {{ retresult.il1550 }} dB</h2>
         </ion-col>
         </ion-row>
@@ -57,7 +61,7 @@
           <ion-col>
           <h2><b>RLIN 1310</b> {{ retresult.rl1310in }} dB</h2>
         </ion-col>
-        <ion-col>
+        <ion-col *ngIf="1310">
           <h2><b>RLIN 1550</b> {{ retresult.rl1550in }} dB</h2>
         </ion-col>
       </ion-row>

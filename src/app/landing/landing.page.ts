@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-landing',
@@ -16,7 +17,8 @@ export class LandingPage implements OnInit {
   constructor(
     public router: Router,
     private storage: Storage,
-    private barcodeScanner: BarcodeScanner
+    private barcodeScanner: BarcodeScanner,
+    public alertController: AlertController
 
 
   ) { }
@@ -64,6 +66,34 @@ export class LandingPage implements OnInit {
      });
   }
 
+  confirmLogout(){
+    this.buttonAlert()
+  }
 
+  async buttonAlert() {
+    const alert = await this.alertController.create({
+      header: 'Are you sure to log out?',
+      cssClass: 'custom-alert',
+      buttons: [
+        {
+          text: 'No',
+          cssClass: 'alert-button-cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          cssClass: 'alert-button-confirm',
+          handler: () => {
+            this.goTologin();
+          }
+        },
+      ],
+    });
 
+    await alert.present();
+    const { role } = await alert.onDidDismiss();
+
+  }
 }
