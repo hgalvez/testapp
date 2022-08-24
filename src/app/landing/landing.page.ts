@@ -57,7 +57,7 @@ export class LandingPage implements OnInit {
       console.log('Barcode data', barcodeData);
       this.scantext =barcodeData.text;
       if(this.scantext === '' || this.scantext === undefined ){
-      }
+        }
       else{
         this.router.navigate(['home', this.scantext]);
       }
