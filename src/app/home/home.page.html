@@ -52,7 +52,7 @@
         <ion-col>
           <h2><b>IL1310</b> {{ retresult.il1310 }} dB</h2>
         </ion-col>
-        <ion-col *ngIf="1310">
+        <ion-col *ngIf="wl1550">
           <h2><b>IL1550</b> {{ retresult.il1550 }} dB</h2>
         </ion-col>
         </ion-row>
@@ -61,7 +61,7 @@
           <ion-col>
           <h2><b>RLIN 1310</b> {{ retresult.rl1310in }} dB</h2>
         </ion-col>
-        <ion-col *ngIf="1310">
+        <ion-col *ngIf="wl1550">
           <h2><b>RLIN 1550</b> {{ retresult.rl1550in }} dB</h2>
         </ion-col>
       </ion-row>
@@ -70,7 +70,7 @@
         <ion-col>
           <h2><b>RLOUT 1310</b> {{ retresult.rl1310out }} dB</h2>
         </ion-col>
-        <ion-col>
+        <ion-col *ngIf="wl1550">
           <h2><b>RLOUT 1550</b> {{ retresult.rl1550out }} dB</h2>
         </ion-col>
       </ion-row>

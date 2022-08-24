@@ -24,6 +24,8 @@ export class HomePage implements OnInit{
   naiassembly: any;
   serialnumber: any; //var from landing page
   not_exists: boolean;
+  wl1550: boolean;
+
 
   results: Results[];
   loading: any;
@@ -54,6 +56,7 @@ export class HomePage implements OnInit{
     });*/
 
     ngOnInit() {
+      this.wl1550=true //used to print 1550
       this.presentLoading("Please wait");
       console.log("estoy en sn landing");
       this.activatedRouter.params.subscribe(response =>{
@@ -67,6 +70,10 @@ export class HomePage implements OnInit{
             console.log(response);
             console.log(response.label);
             this.naiassembly = response;
+
+            if (this.naiassembly[0].wavelength == '1310'){
+              this.wl1550= false;
+            }
             if(response == "" || response == undefined ){
               this.not_exists= true;
             }
