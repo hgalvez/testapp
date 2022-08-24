@@ -71,9 +71,7 @@ export class HomePage implements OnInit{
             console.log(response.label);
             this.naiassembly = response;
 
-            if (this.naiassembly[0].wavelength == '1310'){
-              this.wl1550= false;
-            }
+
             if(response == "" || response == undefined ){
               this.not_exists= true;
             }
@@ -81,6 +79,10 @@ export class HomePage implements OnInit{
               this.not_exists= false;
             }
             console.log('not_exists'+this.not_exists);
+
+            if (this.naiassembly[0].wavelength == '1310' ){
+              this.wl1550= false;
+            }
 
           },(err) =>{
             console.log("Estoy en el errro");
