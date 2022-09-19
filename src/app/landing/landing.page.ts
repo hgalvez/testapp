@@ -72,7 +72,7 @@ export class LandingPage implements OnInit {
 
   async buttonAlert() {
     const alert = await this.alertController.create({
-      header: 'Are you sure to log out?',
+      header: 'Back to previous screen?',
       cssClass: 'custom-alert',
       buttons: [
         {

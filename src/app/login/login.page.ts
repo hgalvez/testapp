@@ -38,20 +38,24 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     console.log("inicio de login");
 
+
+
   }
 
 
 
   login(){
-    if(this.usuario == "" || this.usuario == undefined || this.contrasena == "" || this.contrasena == undefined){
+
+
+   /* if(this.usuario == "" || this.usuario == undefined || this.contrasena == "" || this.contrasena == undefined){
 
       this.basic_alert("Error", "Invalid credentials");
-    }else{
+    }else{*/
 
       let scantext: string;
       let user_info = {
-                          "email": this.usuario,
-                          "password": this.contrasena
+                          "email": 'naifibra@nai-group.com',//this.usuario,
+                          "password": 'F1br42011' //this.contrasena
                       }
 
       this.presentLoading("Please wait");
@@ -83,7 +87,7 @@ export class LoginPage implements OnInit {
 
 
       });
-    }
+    //}
 
     console.log("IMprimir");
   }
